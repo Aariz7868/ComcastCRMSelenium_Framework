@@ -1,8 +1,6 @@
 package com.comcast.crm.orgtest;
 
 import java.io.FileInputStream;
-
-import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.util.Properties;
 import java.util.Random;
@@ -20,6 +18,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
 
 import com.comcast.crm.generic.fileutility.ExcelUtility;
 import com.comcast.crm.generic.fileutility.FileUtility;
@@ -31,7 +30,9 @@ import com.comcast.crm.objectrepositoryutility.OrganizationInfoPage;
 import com.comcast.crm.objectrepositoryutility.OrganizationsPage;
 
 public class CreateOrganizationTest {
-	public static void main(String[] args) throws InterruptedException, Throwable {
+	
+		@Test
+		public void createOrgTest() throws Throwable {
 		//create object
 		FileUtility fLib = new FileUtility();
 		ExcelUtility eLib = new ExcelUtility();
@@ -112,6 +113,6 @@ public class CreateOrganizationTest {
 		driver.quit();
 		
 	}
-	}
+}
 
 
