@@ -26,6 +26,22 @@ public class CreateNewOrganizationPage {
 	
 	@FindBy(name="industry")
 	private WebElement industryDD;
+	
+	@FindBy(name="accounttype")
+	private WebElement accountTypeDD;
+	
+	@FindBy(id="phone")
+	private WebElement phoneNumberEdt;
+
+	public WebElement getPhoneNumberEdt() {
+		return phoneNumberEdt;
+	}
+
+
+	public WebElement getAccountTypeDD() {
+		return accountTypeDD;
+	}
+
 
 	public WebElement getOrgNameEdt() {
 		return orgNameEdt;
@@ -49,11 +65,14 @@ public class CreateNewOrganizationPage {
 		saveBtn.click();
 	}
 	
-	public void createOrg(String orgname, String shippingAdd, String industry ) {
+	public void createOrg(String orgname, String shippingAdd, String industry, String type ) {
 		orgNameEdt.sendKeys(orgname);
 		shippingEdt.sendKeys(shippingAdd);
 		Select sel = new Select(industryDD);
 		sel.selectByVisibleText(industry);
+		Select sel1 = new Select(accountTypeDD);
+		sel1.selectByVisibleText(type);
+		
 		saveBtn.click();
 	}
 

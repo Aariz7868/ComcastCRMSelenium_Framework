@@ -1,6 +1,7 @@
 package com.comcast.crm.listenerutility;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.util.Date;
 
@@ -24,6 +25,7 @@ public class ListenerImpClass  implements ITestListener, ISuiteListener{
 	public ExtentSparkReporter spark;
 	public  ExtentReports report;
 	public static ExtentTest test;
+	
 	public void onStart(ISuite suite) {
 		System.out.println("Report configuration");
         String time= new Date().toString().replace(" ", "_").replace(":", "_");
@@ -50,12 +52,12 @@ public class ListenerImpClass  implements ITestListener, ISuiteListener{
 		System.out.println("====="+result.getMethod().getMethodName()+"====START===");
 		 test = report.createTest(result.getMethod().getMethodName());
 		 UtilityClassObject.setTest(test);
-		test.log(Status.INFO, result.getMethod().getMethodName()+"===>STARTED<===");
+		 UtilityClassObject.getTest().log(Status.INFO, result.getMethod().getMethodName()+"===>STARTED<===");
 	}
 	
 	public void onTestSuccess(ITestResult result) {
 		System.out.println("====="+result.getMethod().getMethodName()+"=====END==");
-		test.log(Status.PASS, result.getMethod().getMethodName()+"===>COMPLETED<===");
+		UtilityClassObject.getTest().log(Status.PASS, result.getMethod().getMethodName()+"===>COMPLETED<===");
 	}
 	
 	public void onTestFailure(ITestResult result) {
@@ -64,8 +66,8 @@ public class ListenerImpClass  implements ITestListener, ISuiteListener{
 		String time= new Date().toString().replace(" ", "_").replace(":", "_");
 		String filePath= tks.getScreenshotAs(OutputType.BASE64);
 		
-		test.addScreenCaptureFromBase64String(filePath, testName+"_"+time);
-		test.log(Status.FAIL, result.getMethod().getMethodName()+"===>FAILED<===");
+		UtilityClassObject.getTest().addScreenCaptureFromBase64String(filePath, testName+"_"+time);
+		UtilityClassObject.getTest().log(Status.FAIL, result.getMethod().getMethodName()+"===>FAILED<===");
 		
 	}
 	

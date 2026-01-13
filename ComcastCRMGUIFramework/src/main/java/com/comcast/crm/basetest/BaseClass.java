@@ -1,6 +1,7 @@
 package com.comcast.crm.basetest;
 
 import java.sql.SQLException;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -36,28 +37,15 @@ public class BaseClass {
 	public ExtentSparkReporter spark;
 	public ExtentReports report;
 	public WebDriver driver = null;
-	public static WebDriver sdriver = null;
 	
-	@BeforeSuite
+	
+	@BeforeSuite(groups = {"smokeTest", "regressionTest"})
 	public void configBS() throws SQLException {
 		System.out.println("connect to db , Report config");
 		dbLib.getDbConnection();
-		
-		//Spark report config
-		ExtentSparkReporter spark = new ExtentSparkReporter("./AdvanceReport/report.html");
-		spark.config().setDocumentTitle("CRM Test SUITE Result");
-		spark.config().setReportName("CRM Report");
-		spark.config().setTheme(Theme.DARK);
-		
-		//add ENV Information and create test
-		report= new ExtentReports();
-		report.attachReporter(spark);
-		report.setSystemInfo("OS", "Windows-10");
-		report.setSystemInfo("BROWSER", "Chrome-100");
 		}
-	
-	
-	@BeforeClass
+		
+	@BeforeClass(groups = {"smokeTest", "regressionTest"})
 	public void configBC() throws Throwable {
 		System.out.println("Launch the browser");
 		String BROWSER = fLib.getDataFromPropertiesFile("browser");
@@ -72,11 +60,11 @@ public class BaseClass {
 		else {
 			driver = new ChromeDriver();
 		}
-		sdriver=driver;
+		
 		UtilityClassObject.setDriver(driver);
 	}
 	
-	@BeforeMethod
+	@BeforeMethod(groups = {"smokeTest", "regressionTest"})
 	public void configBM() throws Throwable {
 		System.out.println("Login");
 		LoginPage lp = new LoginPage(driver);
@@ -84,27 +72,27 @@ public class BaseClass {
 		String USERNAME = fLib.getDataFromPropertiesFile("username");
 		String PASSWORD = fLib.getDataFromPropertiesFile("password");
 		lp.loginToApp(URL, USERNAME, PASSWORD);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1500));
 	}
 	
-	@AfterMethod
+	@AfterMethod(groups = {"smokeTest", "regressionTest"})
 	public void configAM() {
 		System.out.println("Logout");
 		HomePage hp = new HomePage(driver);
 		hp.logout();
 	}
 	
-	@AfterClass
+	@AfterClass(groups = {"smokeTest", "regressionTest"})
 	public void configAC() throws SQLException {
 		System.out.println("Close the browser");
 		driver.quit();
 	}
 	
-	@AfterSuite
+	@AfterSuite(groups = {"smokeTest", "regressionTest"})
 	public void configAS() throws SQLException {
-		System.out.println("close bd, Report backup");
+		System.out.println("close db, Report backup");
 		dbLib.closeConnection();
 		
-	}
-	
-	
+	}	
 }

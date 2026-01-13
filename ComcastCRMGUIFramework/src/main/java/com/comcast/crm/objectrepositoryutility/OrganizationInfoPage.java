@@ -15,14 +15,38 @@ public class OrganizationInfoPage {
 	}
 	
 	@FindBy(xpath="//span[@class='dvHeaderText']")
-	private WebElement headerMsg;
+	private WebElement orgHeaderMsg;
 	
 	@FindBy(xpath="//span[@id='dtlview_Organization Name']")
 	private WebElement orgName;
 	
+	@FindBy(id="dtlview_Industry")
+	private WebElement industryName;
 	
+	@FindBy(id="dtlview_Type")
+	private WebElement accountType;
+	
+	@FindBy(id="dtlview_Phone")
+	private WebElement actualPhoneNumber;
+	
+	
+	public WebElement getActualPhoneNumber() {
+		return actualPhoneNumber;
+	}
+
+
+	public WebElement getIndustryName() {
+		return industryName;
+	}
+
+
+	public WebElement getAccountType() {
+		return accountType;
+	}
+
+
 	public WebElement getHeaderMsg() {
-		return headerMsg;
+		return orgHeaderMsg;
 	}
 
 

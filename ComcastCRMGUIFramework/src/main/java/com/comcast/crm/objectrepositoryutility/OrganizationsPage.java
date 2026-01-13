@@ -22,15 +22,15 @@ public class OrganizationsPage {
 	@FindBy(name="search_field")
 	private WebElement searchDD;
 	
-	@FindBy(name="submit")
+	@FindBy(xpath="//input[@type='button']")
 	private WebElement searchBtn;
 	
-	@FindBy(xpath="//a[text()='\"+orgname+\"']/../../td[8]/a[text()='del']")
-	private WebElement delBtn;
+	/*@FindBy(xpath="//a[text()='\"+orgname+\"']/../../td[8]/a[text()='del']")
+	  private WebElement delBtn;
 	
-	public WebElement getDelBtn() {
+	  public WebElement getDelBtn() {
 		return delBtn;
-	}
+	}*/
 
 	public WebElement getSearchEdt() {
 		return searchEdt;

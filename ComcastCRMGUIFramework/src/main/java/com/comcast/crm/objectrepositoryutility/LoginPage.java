@@ -10,7 +10,7 @@ import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
 
 public class LoginPage extends WebDriverUtility {  //Rule-1 create a seperate java class
 	                      //Rule-2 Object Creation
-	WebDriver driver;
+	public WebDriver driver;
 	public LoginPage(WebDriver driver) {
 		this.driver= driver;
 		PageFactory.initElements(driver, this);
