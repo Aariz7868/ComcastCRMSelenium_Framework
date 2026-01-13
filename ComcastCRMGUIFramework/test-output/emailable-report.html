@@ -8,33 +8,13 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test-2</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">37,715</td><td></td><td></td></tr>
-<tr class="stripe"><td><a href="#t1">Test-1</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">40,160</td><td></td><td></td></tr>
-<tr><th>Total</th><th class="num">4</th><th class="num">0</th><th class="num">0</th><th class="num attn">2</th><th class="num">77,875</th><th colspan="2"></th></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">36,951</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test-2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.comcast.crm.orgtest.CreateOrganizationTest</td><td><a href="#m0">createOrgTest</a></td><td rowspan="1">1768291516607</td><td rowspan="1">6511</td></tr><tr><th colspan="4">Test-2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.comcast.crm.orgtest.CreateOrganizationTest</td><td><a href="#m1">createOrgWithIndustryTypeTest</a></td><td rowspan="1">1768291524475</td><td rowspan="1">9982</td></tr><tr class="passedeven"><td><a href="#m2">createOrgWithPhoneNumber</a></td><td rowspan="1">1768291536862</td><td rowspan="1">7153</td></tr></tbody>
-<tbody id="t1"><tr><th colspan="4">Test-1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.comcast.crm.contacttest.CreateContactTest</td><td><a href="#m3">createContactTest</a></td><td rowspan="1">1768291511117</td><td rowspan="1">11753</td></tr><tr><th colspan="4">Test-1 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.comcast.crm.contacttest.CreateContactTest</td><td><a href="#m4">createContactWithOrgTest</a></td><td rowspan="1">1768291524509</td><td rowspan="1">13534</td></tr><tr class="passedeven"><td><a href="#m5">createContactWithSupportDateTest</a></td><td rowspan="1">1768291541089</td><td rowspan="1">5778</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">com.comcast.crm.contacttest.CreateContactTest</td><td><a href="#m0">createContactTest</a></td><td rowspan="1">1768303722826</td><td rowspan="1">5606</td></tr><tr class="passedeven"><td><a href="#m1">createContactWithOrgTest</a></td><td rowspan="1">1768303729987</td><td rowspan="1">13836</td></tr><tr class="passedeven"><td><a href="#m2">createContactWithSupportDateTest</a></td><td rowspan="1">1768303746526</td><td rowspan="1">6090</td></tr></tbody>
 </table>
-<h2>Test-2</h2><h3 id="m0">com.comcast.crm.orgtest.CreateOrganizationTest#createOrgTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
-	at com.comcast.crm.orgtest.CreateOrganizationTest.createOrgTest(CreateOrganizationTest.java:100)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.comcast.crm.orgtest.CreateOrganizationTest#createOrgWithIndustryTypeTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.comcast.crm.orgtest.CreateOrganizationTest#createOrgWithPhoneNumber</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>Test-1</h2><h3 id="m3">com.comcast.crm.contacttest.CreateContactTest#createContactTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
-	at com.comcast.crm.contacttest.CreateContactTest.createContactTest(CreateContactTest.java:80)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.comcast.crm.contacttest.CreateContactTest#createContactWithOrgTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.comcast.crm.contacttest.CreateContactTest#createContactWithSupportDateTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">com.comcast.crm.contacttest.CreateContactTest#createContactTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.comcast.crm.contacttest.CreateContactTest#createContactWithOrgTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.comcast.crm.contacttest.CreateContactTest#createContactWithSupportDateTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

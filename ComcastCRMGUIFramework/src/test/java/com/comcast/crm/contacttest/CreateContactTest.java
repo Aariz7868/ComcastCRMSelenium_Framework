@@ -40,7 +40,7 @@ import com.comcast.crm.objectrepositoryutility.HomePage;
 import com.comcast.crm.objectrepositoryutility.OrganizationInfoPage;
 import com.comcast.crm.objectrepositoryutility.OrganizationsPage;
 
-
+@Listeners(com.comcast.crm.listenerutility.ListenerImpClass.class)
 public class CreateContactTest extends BaseClass {
 
 	@Test(groups = "smokeTest")
