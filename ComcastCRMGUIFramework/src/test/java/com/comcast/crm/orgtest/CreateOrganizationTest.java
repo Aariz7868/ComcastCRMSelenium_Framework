@@ -2,39 +2,27 @@ package com.comcast.crm.orgtest;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
-import java.util.Properties;
-import java.util.Random;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
 import com.comcast.crm.basetest.BaseClass;
 import com.comcast.crm.generic.fileutility.ExcelUtility;
 import com.comcast.crm.generic.fileutility.FileUtility;
 import com.comcast.crm.generic.webdriverutility.JavaUtility;
+import com.comcast.crm.generic.webdriverutility.UtilityClassObject;
 import com.comcast.crm.objectrepositoryutility.CreateNewOrganizationPage;
 import com.comcast.crm.objectrepositoryutility.HomePage;
-import com.comcast.crm.objectrepositoryutility.LoginPage;
 import com.comcast.crm.objectrepositoryutility.OrganizationInfoPage;
 import com.comcast.crm.objectrepositoryutility.OrganizationsPage;
-
+@Listeners(com.comcast.crm.listenerutility.ListenerImpClass.class)
 public class CreateOrganizationTest extends BaseClass {
 
 	@Test(groups = "smokeTest")
@@ -63,13 +51,16 @@ public class CreateOrganizationTest extends BaseClass {
 		createNewOrganizationPage.createOrg(orgname, shippingAdd);
 
 		// step-5 verify header msg expected result
+		//UtilityClassObject.getTest().log(Status.INFO, "Create Organization");
 		OrganizationInfoPage organizationInformationPage = new OrganizationInfoPage(driver);
 		String organizationHeaderInfo = organizationInformationPage.getHeaderMsg().getText();
 		Assert.assertEquals(true, organizationHeaderInfo.contains(orgname));
 
 		// step-6 verify org name
+		
 		String actualOrgName = organizationInformationPage.getOrgName().getText();
 		Assert.assertEquals(actualOrgName, orgname);
+		
 
 	}
 
@@ -82,7 +73,7 @@ public class CreateOrganizationTest extends BaseClass {
 		// read data from excel file
 		FileInputStream fis1 = new FileInputStream("C:\\Users\\91790\\OneDrive\\Documents\\testdatacrm.xlsx");
 		Workbook wb = WorkbookFactory.create(fis1);
-		Sheet sh = wb.getSheet("org");
+		Sheet sh = wb.getSheet("Org");
 		Row row = sh.getRow(2);
 		String orgname = row.getCell(2).toString() + jLib.getRandomNmber();
 		String industry = row.getCell(3).toString();
@@ -106,6 +97,7 @@ public class CreateOrganizationTest extends BaseClass {
 		OrganizationInfoPage organizationInformationPage = new OrganizationInfoPage(driver);
 		String actIndustry = organizationInformationPage.getIndustryName().getText();
 		Assert.assertEquals(actIndustry, industry);
+		
 
 		// step-6 verify AccountType from dropdown
 		String actuaType = organizationInformationPage.getAccountType().getText();

@@ -3,17 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.comcast.crm.contacttest.CreateContactTest">
+      <class name="practiceSenario.PracticeCaptcha">
         <methods>
-          <include name="configBC"/>
-          <include name="configBS"/>
-          <include name="configAC"/>
-          <include name="configAS"/>
-          <include name="createContactTest"/>
-          <include name="configBM"/>
-          <include name="configAM"/>
+          <include name="captchaTest"/>
         </methods>
-      </class> <!-- com.comcast.crm.contacttest.CreateContactTest -->
+      </class> <!-- practiceSenario.PracticeCaptcha -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -11,9 +11,9 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelUtility {
 	public String getDataFromExcel(String sheetName, int rowNum, int cellNum) throws Throwable {
-		FileInputStream fis = new FileInputStream("./testData/testdatacrm.xlsx");
+		FileInputStream fis = new FileInputStream("./testDaC:\\Users\\91790\\Documents\\urlTest.xlsxta/testdatacrm.xlsx");
 		Workbook wb=WorkbookFactory.create(fis);
-		String data = wb.getSheet(sheetName).getRow(rowNum).getCell(cellNum).getCellFormula();
+		String data = wb.getSheet(sheetName).getRow(rowNum).getCell(cellNum).getStringCellValue();
 		
 		return data;
 		

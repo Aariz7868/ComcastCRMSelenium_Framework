@@ -29,7 +29,7 @@ public class ListenerImpClass  implements ITestListener, ISuiteListener{
 	public void onStart(ISuite suite) {
 		System.out.println("Report configuration");
         String time= new Date().toString().replace(" ", "_").replace(":", "_");
-		ExtentSparkReporter spark = new ExtentSparkReporter("./AdvanceReport/report_"+time+".html");
+	    spark = new ExtentSparkReporter("./AdvanceReport/report_"+time+".html");
 		spark.config().setDocumentTitle("CRM Test SUITE Result");
 		spark.config().setReportName("CRM Report");
 		spark.config().setTheme(Theme.DARK);

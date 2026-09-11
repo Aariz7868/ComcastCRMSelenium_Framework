@@ -1,6 +1,7 @@
 package com.comcast.crm.basetest;
 
 import java.sql.SQLException;
+
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -41,7 +42,7 @@ public class BaseClass {
 	
 	@BeforeSuite(groups = {"smokeTest", "regressionTest"})
 	public void configBS() throws SQLException {
-		System.out.println("connect to db , Report config");
+		System.out.println("connect to db");
 		dbLib.getDbConnection();
 		}
 		
